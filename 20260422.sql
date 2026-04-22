@@ -37,3 +37,19 @@ Create table Aule(
  )
 
  select * from Iscrizioni
+
+ --Tabella Lezioni
+
+ Create table Lezioni(
+	LezioneId int not null primary key identity (1,1),
+
+	CorsoId int not null,
+	AulaId int not null,
+
+	DataLezione Date not null,
+	OraInizio Time,
+	OraFine Time
+
+	Foreign key (CorsoId) references Corso(CorsoId),
+	Foreign key (AulaId) references Aule(AulaId)
+ )
