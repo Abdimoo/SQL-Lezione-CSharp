@@ -15,3 +15,9 @@ Create table Aule(
 	Capacita int not null
 )
  select * from Aule
+
+ --Modifica colonna StudentiID a StudenteId
+
+ EXEC sp_rename 'Studenti.StudentiID','StudenteId';
+
+
