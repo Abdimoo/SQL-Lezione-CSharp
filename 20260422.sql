@@ -21,3 +21,19 @@ Create table Aule(
  EXEC sp_rename 'Studenti.StudentiID','StudenteId';
 
 
+  Create table Iscrizioni(
+	--Id iscrizione
+	IscrizioneId int not null primary key identity(1,1),
+
+	--collegamento allo studente
+	StudenteId int not null,
+	--Collegamento al corso
+	CorsoId int not null,
+	--Data Iscrizione
+	DataIscrizione Date null,
+	--Vincoli di relazioni
+	foreign key (StudenteId) references Studenti(StudenteId),
+	foreign key (CorsoId) references Corso(CorsoId)
+ )
+
+ select * from Iscrizioni
