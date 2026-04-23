@@ -1,3 +1,7 @@
+
+use ScuolaDB;
+go
+
 Create table Docenti(
 	DocenteId INT not null primary key identity (1,1),
 	Nome nvarchar(50) not null,
@@ -36,7 +40,7 @@ Create table Aule(
 	foreign key (CorsoId) references Corso(CorsoId)
  )
 
- select * from Iscrizioni
+ select * from Iscrizioni;
 
  --Tabella Lezioni
 
@@ -52,4 +56,16 @@ Create table Aule(
 
 	Foreign key (CorsoId) references Corso(CorsoId),
 	Foreign key (AulaId) references Aule(AulaId)
- )
+ );
+
+ Create Table DocentiCorso(
+	Id int not null primary key identity(1,1),
+	DocenteId int not null,
+	CorsoId int not null,
+
+	Foreign key (DocenteId) references Docenti(DocenteId),
+	Foreign key (CorsoId) references Corso(CorsoId)
+	
+ );
+
+ select * from Docenti
